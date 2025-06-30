@@ -30,7 +30,7 @@ if df_all.empty:
     raise ValueError("No valid data was fetched.")
 
 # 💱 환율 적용
-usd_to_krw = df_all['USD/KRW'].fillna(method='ffill')
+usd_to_krw = df_all['USD/KRW'].ffill()
 converted = df_all.copy()
 for col in df_all.columns:
     if '(USD)' in col:
@@ -97,3 +97,6 @@ fig.update_yaxes(title_text="KRW", row=2, col=1, secondary_y=True)
 fig.update_yaxes(title_text="원화 환율 (1USD)", row=3, col=1)
 
 fig.show()
+
+# 그래프를 HTML로 저장
+# fig.write_html("index.html")
