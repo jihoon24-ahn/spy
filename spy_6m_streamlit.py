@@ -82,7 +82,7 @@ fig.add_trace(go.Scatter(
 
 # 🛠️ 레이아웃
 fig.update_layout(
-    title='QQQ, SPY 가격 및 USD/KRW 환율 비교 (최근 6개월)',
+    # title='QQQ, SPY 가격 및 USD/KRW 환율 비교 (최근 6개월)',
     height=1200,  # 길이 충분히 확보
     template='plotly_white',
     hovermode='x unified',
