@@ -29,8 +29,10 @@ df_all = pd.DataFrame(data)
 if df_all.empty:
     raise ValueError("No valid data was fetched.")
 
+df_all = df_all.interpolate(method='time')  # Fill missing values to avoid broken lines
+
 # 💱 환율 적용
-usd_to_krw = df_all['USD/KRW'].ffill()
+usd_to_krw = df_all['USD/KRW'].ffill().bfill()
 converted = df_all.copy()
 for col in df_all.columns:
     if '(USD)' in col:
